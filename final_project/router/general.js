@@ -29,12 +29,14 @@ public_users.get('/author/:author',function (req, res) {
   //Write your code here
   const author = req.params.author;
     return res.send(books[author]);
-  return res.status(300).json({message: "Yet to be implemented"});
+  //return res.status(300).json({message: "Yet to be implemented"});
 });
 
 // Get all books based on title
 public_users.get('/title/:title',function (req, res) {
   //Write your code here
+  const title = req.params.title;
+    return res.send(books[title]);
   return res.status(300).json({message: "Yet to be implemented"});
 });
 
