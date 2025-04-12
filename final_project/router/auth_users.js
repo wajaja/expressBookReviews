@@ -5,7 +5,6 @@ const regd_users = express.Router();
 
 let users = [];
 
-const users = []
 const SECRET_KEY = 'fingerprint_customer'
 
 const isValid = (username) => {
