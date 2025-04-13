@@ -15,7 +15,7 @@ public_users.post("/register", (req,res) => {
     return res.status(400).json({ message: 'User already exists' })
   } else {
     users.push({ username, password })
-    return res.status(200).json({ message: 'User registered successfully' })
+    return res.status(200).json({ message: 'Customer successfully registered' })
   }
 });
 
@@ -63,7 +63,7 @@ public_users.get('/author/:author',function (req, res) {
     if (booksByAuthor.length === 0) {
       reject('No books found for this author')
     } else {
-      resolve(booksByAuthor)
+      resolve({ booksbyauthor: booksByAuthor })
     }
   })
     .then((data) => {
@@ -84,7 +84,7 @@ public_users.get('/title/:title',function (req, res) {
     if (booksByTitle.length === 0) {
       reject('No books found with this title')
     } else {
-      resolve(booksByTitle)
+      resolve({ booksbytitle: booksByTitle })
     }
   })
     .then((data) => {
