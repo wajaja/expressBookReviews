@@ -20,11 +20,12 @@ public_users.post("/register", (req,res) => {
 });
 
 // Get the book list available in the shop
-public_users.get('/',function (req, res) {
-    new Promise((resolve, reject) => {
-    resolve(JSON.stringify(books))
-  })
-    .then((data) => {
+public_users.get('/', function (req, res) {
+   
+    const getBooks = new Promise((resolve, reject) => {
+       resolve(books)
+   });
+    getBooks.then((data) => {
       return res.status(200).json({ data })
     })
     .catch((error) => {
