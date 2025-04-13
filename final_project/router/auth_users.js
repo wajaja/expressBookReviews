@@ -57,7 +57,7 @@ regd_users.put("/auth/review/:isbn", (req, res) => {
       return res.status(400).json({ message: 'Review already exists' })
     } else {
       books[isbn].reviews[user] = review
-      return res.status(200).json({ message: 'Review added successfully' })
+      return res.status(200).send('Review for the book' + isbn + 'has been added/updated')
     }
   } catch (error) {
     res.status(400).send('Invalid token')
@@ -83,7 +83,7 @@ regd_users.delete('/auth/review/:isbn', (req, res) => {
     books[isbn].reviews = Object.keys(books[isbn].reviews).find(
       (r) => r.username !== username
     )
-    return res.status(200).json({ message: 'Review deleted successfully' })
+    return res.status(200).send('Review for the ISBN' + isbn + 'posted by the user test deleted' })
   } catch (error) {
     return res.status(401).json({ message: 'Unauthorized' })
   }
