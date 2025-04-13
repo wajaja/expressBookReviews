@@ -27,7 +27,7 @@ regd_users.post("/login", (req,res) => {
   const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: '1h' })
   users.find((u) => u.username === username).token = token
   console.log(users)
-  return res.status(200).json({ token })
+  return res.status(200).json("Customer successfully logged in")
 });
 
 // Add a book review
